@@ -48,10 +48,27 @@ public class WikiUnit implements Priced {
             this.supply = FMT."\{unit.getBuild().getSupplyCost()}";
             this.buildtime = FMT."%.0f\{unit.getBuild().getBuildTime()}";
         }
+        if (unit.getHealth().getLevels().size() > 1) {
+            
+            Double startShield = unit.getHealth().getLevels().get(0).getMaxShieldPoints();
+            Double endShield = unit.getHealth().getLevels().get(9).getMaxShieldPoints();
+            this.shield = FMT."%.0f\{startShield} - %.0f\{endShield} (+%.0f\{(endShield - startShield)/9}/lvl)";
+           
+            Double startArmor = unit.getHealth().getLevels().get(0).getMaxArmorPoints();
+            Double endArmor = unit.getHealth().getLevels().get(9).getMaxArmorPoints();
+            this.armor = FMT."%.0f\{startArmor} - %.0f\{endArmor} (+%.0f\{(endArmor - startArmor)/9}/lvl)";
+            
+            Double startHull = unit.getHealth().getLevels().get(0).getMaxHullPoints();
+            Double endHull = unit.getHealth().getLevels().get(9).getMaxHullPoints();
+            this.hull = FMT."%.0f\{startHull} - %.0f\{endHull} (+%.0f\{(endHull - startHull)/9}/lvl)"; 
 
-        this.shield = FMT."%.0f\{unit.getHealth().getLevels().get(0).getMaxShieldPoints()}";
-        this.armor = FMT."%.0f\{unit.getHealth().getLevels().get(0).getMaxArmorPoints()}";
-        this.hull = FMT."%.0f\{unit.getHealth().getLevels().get(0).getMaxHullPoints()}";
+        }
+        else { 
+            this.shield = FMT."%.0f\{unit.getHealth().getLevels().get(0).getMaxShieldPoints()}";
+            this.armor = FMT."%.0f\{unit.getHealth().getLevels().get(0).getMaxArmorPoints()}";
+            this.hull = FMT."%.0f\{unit.getHealth().getLevels().get(0).getMaxHullPoints()}"; 
+        }
+        
         this.armorstr = FMT."%.0f\{unit.getHealth().getLevels().get(0).getArmorStrength()}";
         this.description = unit.getDescription();
 

@@ -16,7 +16,7 @@ public class Main {
     /**
      * Defaults
      */
-    private static final String DEFAULT_STEAM_DIR = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sins2\\";
+    private static final String DEFAULT_STEAM_DIR = "F:\\SteamLibrary\\steamapps\\common\\Sins2\\";
     private static final String DEFAULT_OUTPUT_DIR = "wiki\\";
 
     /**
@@ -63,7 +63,7 @@ public class Main {
     private static CommandLine readArgs(String[] args) {
         Options options = new Options();
 
-        Option steamdirOption = new Option("sd", "steamdir", true, "Path to Sins2 folder. Default: \"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Sins2\\\"");
+        Option steamdirOption = new Option("sd", "steamdir", true, "Path to Sins2 folder. Default: \"F:\\Steam Library\\steamapps\\common\\Sins2\\\"");
         steamdirOption.setRequired(false);
         options.addOption(steamdirOption);
 
